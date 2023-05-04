@@ -4,7 +4,7 @@ import Order from "./entity/order";
 import OrderItem from "./entity/order_item";
 
 const address = new Address("Street", 123, "00000-000", "City", "Brazil");
-let customer = new Customer("123", "Pedro", address);
+let customer = new Customer("123", "Pedro");
 customer.activate();
 
 const item1 = new OrderItem("1", "Item 1", 10);
