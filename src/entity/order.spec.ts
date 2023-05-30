@@ -16,17 +16,17 @@ describe("Order unit test", () => {
 
   it("should throw error when items is empty", () => {
     expect(() => {
-      let order = new Order("123", "123", []);
+      new Order("123", "123", []);
     }).toThrowError("Items quantity must be greater than zero");
   });
 
   it("should calculate total", () => {
-    const item = new OrderItem("1", "Product 1", 2);
-    const item2 = new OrderItem("1", "Product 2", 2.75);
+    const item = new OrderItem("1", "Product 1", 2, 1, "123");
+    const item2 = new OrderItem("1", "Product 2", 2.75, 2, "1234");
     const order = new Order("123", "123", [item]);
 
     expect(order.total()).toBe(2);
     const order2 = new Order("123", "123", [item, item2]);
-    expect(order2.total()).toBe(4.75);
+    expect(order2.total()).toBe(7.5);
   });
 });
