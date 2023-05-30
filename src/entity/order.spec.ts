@@ -25,8 +25,8 @@ describe("Order unit test", () => {
     const item2 = new OrderItem("1", "Product 2", 2.75, 2, "1234");
     const order = new Order("123", "123", [item]);
 
-    expect(order.total()).toBe(2);
+    expect(order.total).toBe(2);
     const order2 = new Order("123", "123", [item, item2]);
-    expect(order2.total()).toBe(7.5);
+    expect(order2.total).toBe(7.5);
   });
 });
