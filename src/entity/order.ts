@@ -6,6 +6,10 @@ export default class Order {
   private _items: OrderItem[] = [];
   private _total: number;
 
+  get id(): string {
+    return this._id;
+  }
+
   get total(): number {
     return this._total;
   }
