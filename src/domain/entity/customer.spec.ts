@@ -24,7 +24,7 @@ describe("Customer unit test", () => {
     const customer = new Customer("123", "Jhon");
     const address = new Address("Street", 1, "000000", "City", "State");
 
-    customer.Address = address;
+    customer.changeAddress(address);
 
     expect(customer.active).toBe(false);
 
