@@ -43,10 +43,8 @@ export default class OrderRepository implements OrderRepositoryInterface {
         })
       );
       transaction.commit();
-      console.log("Atualizado com sucesso");
     } catch (error) {
       transaction.rollback();
-      console.log("Nao atualizado com erro: ", error);
     }
   }
   async delete(id: string): Promise<void> {
