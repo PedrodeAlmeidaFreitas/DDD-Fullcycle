@@ -16,7 +16,13 @@ export default class EventDispatcher
     return this.events;
   }
   notify(event: EventInterface<ProductEventData>): void {
-    throw new Error("Method not implemented.");
+    const eventName = event.constructor.name;
+
+    if (this.eventHandlers.get(eventName)) {
+      this.eventHandlers
+        .get(eventName)!
+        .forEach((handler) => handler.handle(event));
+    }
   }
   register(
     eventName: string,
