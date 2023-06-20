@@ -44,6 +44,12 @@ export default class Order {
     }
   }
 
+  changeItems(items: OrderItem[]): void {
+    this._items = items;
+    this._total = this.totalItems();
+    this.validate();
+  }
+
   private totalItems(): number {
     return this._items.reduce((acc, item) => acc + item.orderItemTotal(), 0);
   }

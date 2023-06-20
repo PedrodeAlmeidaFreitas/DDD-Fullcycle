@@ -69,6 +69,49 @@ describe("Order repository test", () => {
     expect(JSON.stringify(orderModel)).toStrictEqual(JSON.stringify(order));
   });
 
+  it("should update a new order", async () => {
+    const customer = new Customer("123", "Customer 1");
+    const address = new Address(
+      "Street 1",
+      1,
+      "Zipcode 1",
+      "City 1",
+      "Country 1"
+    );
+    customer.changeAddress(address);
+
+    await customerRepository.create(customer);
+
+    const product = new Product("1", "Product 1", 10);
+    await productRepository.create(product);
+
+    const orderItem = new OrderItem(
+      "1",
+      product.name,
+      product.price,
+      2,
+      product.id
+    );
+    const order = new Order("1", customer.id, [orderItem]);
+    await orderRepository.create(order);
+
+    const orderModel = await orderRepository.find(order.id);
+
+    expect(JSON.stringify(orderModel)).toStrictEqual(JSON.stringify(order));
+
+    orderItem.increaseQuantity(5);
+
+    order.changeItems([orderItem]);
+
+    await orderRepository.update(order);
+
+    const updatedOrderModel = await orderRepository.find(order.id);
+
+    expect(JSON.stringify(updatedOrderModel)).toStrictEqual(
+      JSON.stringify(order)
+    );
+  });
+
   it("should delete an order", async () => {
     const customer = new Customer("123", "Customer 1");
     const address = new Address(
