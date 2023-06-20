@@ -10,8 +10,16 @@ export default class Order {
     return this._id;
   }
 
+  get customerId(): string {
+    return this._customerId;
+  }
+
   get total(): number {
     return this._total;
+  }
+
+  get items(): OrderItem[] {
+    return this._items;
   }
 
   constructor(id: string, customerId: string, items: OrderItem[]) {

@@ -17,6 +17,7 @@
     "@types/uuid": "^9.0.1",
     "reflect-metadata": "^0.1.13",
     "sequelize-typescript": "^2.1.5",
+    "sequelize": "^6.32.1",
     "sqlite3": "^5.1.6",
     "uuid": "^9.0.0"
   }

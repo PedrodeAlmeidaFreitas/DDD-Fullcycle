@@ -5,6 +5,26 @@ export default class OrderItem {
   private _price: number;
   private _quantity: number;
 
+  get id(): string {
+    return this._id;
+  }
+
+  get productId(): string {
+    return this._productId;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  get quantity(): number {
+    return this._quantity;
+  }
+
+  get price(): number {
+    return this._price;
+  }
+
   constructor(
     id: string,
     name: string,
@@ -24,10 +44,6 @@ export default class OrderItem {
     if (this._quantity <= 0) {
       throw new Error("Quantity must be greater than zero");
     }
-  }
-
-  get price(): number {
-    return this._price;
   }
 
   orderItemTotal(): number {
