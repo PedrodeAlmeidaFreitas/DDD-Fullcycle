@@ -1,4 +1,4 @@
-import ProductEventData from "../product/product-event-data";
+import ProductEventData from "../../product/event/product-event-data";
 import EventDispatcherInterface from "./interfaces/event-dispatcher.interface";
 import EventHandlerInterface from "./interfaces/event-handler.interface";
 import EventInterface from "./interfaces/event.interface";

@@ -1,4 +1,4 @@
-import EventInterface from "../shared/interfaces/event.interface";
+import EventInterface from "../../@shared/event/interfaces/event.interface";
 import ProductEventData from "./product-event-data";
 
 export default class ProductCreatedEvent
