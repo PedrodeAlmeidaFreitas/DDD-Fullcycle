@@ -1,6 +1,7 @@
 import Address from "../value-object/address";
+import CustomerInterface from "./customer.interface";
 
-export default class Customer {
+export default class Customer implements CustomerInterface {
   private _id: string;
   private _name: string;
   private _address?: Address;
@@ -49,7 +50,7 @@ export default class Customer {
   }
 
   activate() {
-    if (this._address === undefined) {
+    if (this?._address === undefined) {
       throw new Error("Address is mandatory to activate a customer");
     }
     this._active = true;
