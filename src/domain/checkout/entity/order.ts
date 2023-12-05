@@ -1,6 +1,8 @@
+import OrderInterface from "./order.interface";
 import OrderItem from "./order_item";
+import OrderItemInterface from "./order_item.interface";
 
-export default class Order {
+export default class Order implements OrderInterface {
   private _id: string;
   private _customerId: string;
   private _items: OrderItem[] = [];
@@ -18,7 +20,7 @@ export default class Order {
     return this._total;
   }
 
-  get items(): OrderItem[] {
+  get items(): OrderItemInterface[] {
     return this._items;
   }
 
